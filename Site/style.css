@@ -38,6 +38,7 @@ ul{
 .logo{
    display: flex;
    align-items: center;
+   justify-content: space-between;
 
 }
 
@@ -59,6 +60,11 @@ ul{
    font-weight: 900px;
    color: black;
    font-family: 'Sacramento';
+ }
+
+ .fotoSobre{
+      width: 85%;
+      border-radius: 50%;
  }
 
  .info{

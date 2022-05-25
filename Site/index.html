@@ -1,65 +1,88 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div class="tela">
-    <div class="container">
-        <div class="navBar"><br>
-            <ul class="logo">
-                <li>NewAlternative</li>
-            </ul>
-            
-            <div class="vazio"></div>
-            <div class="vazio"></div>
-            <div class="vazio"></div>
-            <div class="vazio"></div>
-            <div class="vazio"></div>
-            <div class="vazio"></div>
-            <div class="login">
-                <ul clas="ulLog"=>
-                <li> Login </li>
+        <div class="container">
+            <div class="navBar"><br>
+                <ul class="logo">
+                    <li><img src="D:\PI\Projeto Individual\Site\imagens\logotipo.png"></li>
                 </ul>
-                <ul class="ulCad">
-                <li> Cadastre-se </li>
-            </ul>
+
+                <div class="vazio"></div>
+                <div class="vazio"></div>
+                <div class="vazio"></div>
+                <div class="vazio"></div>
+                <div class="vazio"></div>
+                <div class="vazio"></div>
+                <div class="login">
+                    <ul clas="ulLog"=>
+                        <li> Login </li>
+                    </ul>
+                    <ul class="ulCad">
+                        <li> Cadastre-se </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        </div>
-    </div>
-    <br><br>
-    <div class="containerHome">
-        <div class="sobre">
-            <div class="titulo"> Sobre a autora </div>
-            <img id="fotoSobre"src="">
+        <br><br>
+        <div class="containerHome">
+            <div class="sobre">
+                <div class="titulo"> Sobre a autora </div>
+                <img class="fotoSobre" src="C:\Users\Maria\Desktop\img_profile _sobre.jpeg">
                 <p class="info">
-                Nascida e criada na cidade de São Paulo, cresci tendo muito contato e convivendo com diferentes tipos de cultura e estilos, resolvendo criar este blog para papear um pouco sobre o meu estilo, e conhecer pessoas que compartilham deste gosto. 
+                    Nascida e criada na cidade de São Paulo, cresci tendo muito contato e convivendo com diferentes
+                    tipos de cultura e estilos, resolvendo criar este blog para papear um pouco sobre o meu estilo, e
+                    conhecer pessoas que compartilham deste gosto.
                 </p>
             </div>
             <div class="post">
-                <form method=GET action='post' target='blank' >
+                <form method=GET action='post' target='blank'>
                     <div>
-                    <label>Título</label>
-                    <input type='title' name='titulo' class="iptTitulo" required="" placeholder="Coloca um assunto, quem sabe a galera não dá um google e cai aqui?">
+                        <label>Título</label>
+                        <input type='title' id='titulo' class="iptTitulo" required=""
+                            placeholder="Coloca um assunto, quem sabe a galera não dá um google e cai aqui?">
                     </div>
                     <br><br>
                     <div>
-                    <label>Texto</label>
-                    <textarea cols="100" rows="30" class="iptConteudo" required="" placeholder="Sobre o que iremos falar? ..."></textarea>
+                        <label>Texto</label>
+                        <textarea cols="100" rows="30" class="iptConteudo" required=""
+                            placeholder="Sobre o que iremos falar? ..."></textarea>
                     </div>
                     <div>
-                    <input type="file" class="arquivo" value="Esolher Arquivo">
+                        <input type="file" class="arquivo" value="Esolher Arquivo">
                     </div>
                     <br><br>
-                    <input type='submit' value='Postar'class="submit">
-                  </form>
+                    <input type='submit' value='Postar' class="submit" onclick="postar()">
+                </form>
+
             </div>
         </div>
     </div>
-
 </body>
+<marquee>Frase aqui</marquee>
+
 </html>
+
+<script>
+    function postar() {
+        if (titulo.value == '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Pera aí...',
+                text: 'Você não pode postar um tópico sem um assunto!',
+            })
+        }
+        Swal.fire('Any fool can use a computer')
+    }
+
+</script>
