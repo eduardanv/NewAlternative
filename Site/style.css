@@ -13,7 +13,7 @@ body {
 
  .tela{
     border: 3px solid green;
-    height: 700px;
+    height: 100%;
  }
 
  .container .navBar {
@@ -39,8 +39,10 @@ ul{
    display: flex;
    align-items: center;
    justify-content: space-between;
+   width: 60%;
 
 }
+
 
 .login{
    display: flex;
@@ -104,11 +106,12 @@ ul{
     font-size:15px;
  }
 
- .submit{
+ .submit, .reset{
     font-family: 'bebas neue';
     background-color: black;
     color:white;
     font-size: 15px;
+    border-radius: 20%;
  }
 
  .arquivo{
@@ -119,7 +122,16 @@ ul{
    width: 20vw;
 }
 
-.txtFooter{
-   truespeed: 
+.footer{
+   background-color: #000000;
+   height: 75px;
+   color: #fff;
+   display: flex;
+   font-size: 20px;
+   justify-content: center;
+   align-items: center;
+   font-family: 'Indie Flower';
 }
+
+
 
