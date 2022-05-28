@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/funcoes.js"></script>
+    <title>Login ♥</title>
+</head>
+
+<body onload="validarSessao()" class="bodyLogin">
+
+    <div class="banner">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+        <div class="tela">
+            <!-- SCM Music Player https://www.scmplayer.net -->
+            <!-- <script type="text/javascript" src="https://www.scmplayer.net/script.js" 
+data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle':true,'repeat':1,'placement':'top','showplaylist':true,'playlist':[{'title':'Heaven Knows','url':'https://www.youtube.com/watch?v=rHBxJCq99jA'},{'title':'Do I Wanna Know','url':'https://www.youtube.com/watch?v=bpOSxM0rNPM'},{'title':'Stressed Out','url':'https://www.youtube.com/watch?v=pXRviuL6vMY'},{'title':'Bring Me To Life','url':'https://www.youtube.com/watch?v=vyzO-5vt48g'}]}" ></script> -->
+            <!-- SCM Music Player script end -->
+
+            <div class="container">
+                <div class="navBar"><br>
+                    <ul class="logo">
+                        <li><a href="./index.html"><img src="./imgs/logotipo.png"></a></li>
+                    </ul>
+
+                    <div class="vazio"></div>
+                    <div class="vazio"></div>
+                    <div class="vazio"></div>
+                    <div class="vazio"></div>
+                    <div class="vazio"></div>
+                    <div class="vazio"></div>
+                    <div class="faq">
+                        <ul class="ulFAQ">
+                            <li> FAQ </li>
+                        </ul>
+                        <ul class="ulCad">
+                            <li> <a href="./cadastro.html">Cadastro</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="txtHead">
+                <marquee class="textoPassa">CONTRIBUA COM O NOSSO FÓRUM! CADASTRE-SE ♥ | DÚVIDAS? CLIQUE NA ABA "FAQ" ♥
+                    | O
+                    MUNDO
+                    É DOS ESQUISITÕES ♥ | CONTRIBUA COM O NOSSO FÓRUM! CADASTRE-SE ♥ | DÚVIDAS? CLIQUE NA ABA <href>
+                    </href>
+                    "FAQ"
+                    ♥ | O MUNDO É DOS ESQUISITÕES ♥ | CONTRIBUA COM O NOSSO FÓRUM! CADASTRE-SE ♥ | DÚVIDAS? CLIQUE NA
+                    ABA
+                    "FAQ"
+                    ♥ | O MUNDO É DOS ESQUISITÕES ♥ | CONTRIBUA COM O NOSSO FÓRUM! CADASTRE-SE ♥ | DÚVIDAS? CLIQUE NA
+                    ABA
+                    "FAQ"
+                    ♥ | O MUNDO É DOS ESQUISITÕES ♥ </marquee>
+            </div>
+            <div class="container">
+                <div class="card">
+                    <h2 class="txtOla">Olá de volta!</h2>
+                    <br>
+                    <br>
+                    <div class="formLogin">
+                        <div class="container">
+                            <br>
+                            E-mail:
+                            <input id="iptEmail" type="text" placeholder="Insira seu e-mail">
+                            <br>
+                            Senha:
+                            <input id="iptSenha" type="password" placeholder="********">
+                            <br>
+                            <br>
+                            <button class="btnLogin" onclick="entrar()">Entrar</button>
+                            <br>
+                        </div>
+
+                    </div>
+
+                    <div id="div_erros_login">
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="footer">
+                <div class="container">
+                    Feito com amor por Maria Eduarda ♥ 1CCO
+                </div>
+        </div>
+
+</body>
+
+</html>
+
+<script>
+
+
+    function entrar() {
+
+        var emailVar = iptEmail.value;
+        var senhaVar = iptSenha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            alert('Ops... Todos os campos estão vazios :(');
+            // finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    setTimeout(function () {
+                        window.location = "./index.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+
+</script>
