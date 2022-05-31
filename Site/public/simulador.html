@@ -10,38 +10,107 @@
 </head>
 
 <body class="bodySim">
-    <h3 class="titleSim">Combinação de roupas</h3>
-    <br>
     <div class="container">
-        <div class="txtSim">
-            <span>Vamos combinar looks?</span>
+        <div class="navBar"><br>
+            <ul class="logo">
+                <li><a href="./index.html"><img src="./imgs/logotipo.png"></a></li>
+            </ul>
+
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="faq">
+                <ul class="ulFAQ">
+                    <li> FAQ </li>
+                </ul>
+                <ul class="ulCad">
+                    <li> <a href="./cadastro.html">Cadastro</a></li>
+                </ul>
+                <ul class="ulExit">
+                    <li><a href="./login.html"> Logout </a></li>
+                </ul>
+                <ul class="ulSim">
+                    <li><a href="./simulador.html"></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="divSim">
+        <div class="container">
+            <h3 class="titleSim">Combinação de roupas</h3>
+            <span>Vamos combinar looks? ♥</span>
             <br><br>
-            Insira quantas roupas você possui no total:<br>
-            <input id="iptNum" type=number>
-            <br>
-            <button class="btnSim" onclick="calcular()">Combinarrr!</button>
+            Informe as opções de roupas superiores (Camisa, body, regata etc...):<br>
+            <input id="iptSuperior">
+            <br><br>
+            <button class="btnSim" onclick="cadastrar1()">Cadastrar roupa superior</button>
+            <br><br><br>
+            Informe as opções de roupas inferiores (Calça, shorts, saia, etc...) <br>
+            <input id="iptInferior">
+            <br><br>
+            <button class="btnSim" onclick="cadastrar2()">Cadastrar roupa inferior</button>
+            <br><br>
+            <button class="btnSim" onclick="calcular()">Exibir Combinações!!!...</button>
             <br>
             <span id="msg"></span>
         </div>
     </div>
+    <div class="footer">
+        <div class="container">
+            Feito com amor por Maria Eduarda ♥ 1CCO
+        </div>
 </body>
 
 </html>
 <script>
 
-    function calcular() {
-        var numero = iptNum.value;
-        var soma = numero;
+    var roupaSuperior = [];
+    var roupaInferior = [];
 
-        if (numero != '') {
-            for (i = 1; i < numero; i++) {
-                soma *= i;
-            }
-            alert(`As combinações possíveis são: ${soma}`);
+
+    function cadastrar1() {
+
+        if (iptSuperior.value == '') {
+            alert('Ei.. O campo de roupa superior não pode esta vazio!');
         }
 
         else {
-            msg.innerHTML = 'Insira um número!';
+            roupaSuperior.push(iptSuperior.value);
+            iptSuperior.value = '';
+        }
+    }
+
+    function cadastrar2() {
+
+        if (iptInferior.value == '') {
+            alert('Ei.. O campo de roupa inferior não pode esta vazio!');
+        }
+
+        else {
+            roupaInferior.push(iptInferior.value);
+            iptInferior.value = '';
+        }
+
+    }
+    function calcular() {
+
+        msg.innerHTML = '';
+        roupaSuperior;
+        roupaInferior;
+
+        if (roupaSuperior != '' && roupaInferior != '') {
+            msg.innerHTML = `As combinações possíveis são: ${roupaInferior.length * roupaInferior.length}<br>`;
+            for (let i = 0; i < roupaInferior.length; i++) {
+                msg.innerHTML += `<br>${roupaSuperior[i]} combina com: <br>`;
+                for (let index = 0; index < roupaInferior.length; index++) {
+                    msg.innerHTML += `${roupaInferior[index]}<br>`;
+                }
+            }
+
         }
     }
 

@@ -15,7 +15,7 @@ body {
 
 
 .tela {
-   border: 3px solid green;
+   /* border: 3px solid green; */
    height: 100%;
 }
 
@@ -246,20 +246,46 @@ a{
    color: white;;
 
 }
-.txtSim{
+
+.divSim{
+      display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 0.5%;
+}
+.divSim .container{
+   background: rgb(0, 0, 0);
+
+   font-family: 'patrick hand';
+   justify-content: center;
+   align-items: center;
+   font-size: 20px;
+   color: white;
+   /* display: grid; */
+    width: 67vh;
+    justify-items: stretch;
    /* display: flex; */
    justify-content: center;
 }
-.pSim{
+.span{
    font-size: 15px;
 }
 
 .titleSim{
    font-size: 30px;
-
+   justify-items: center;
+   justify-content: center;
+   align-items: center;
 }
 .btnSim{
-   display: flex;
+   font-family: 'patrick hand';
+   background-color: white;
+   color: black;
+   font-size: 15px;
+   border-radius: 10%;
+   width: auto;
+   height: auto;
+   align-items: center;
    justify-content: center;
 }
 /* FIM STYLE TELA SIMULADOR */

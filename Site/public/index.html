@@ -38,7 +38,7 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                     <ul class="ulFAQ">
                         <li> FAQ </li>
                     </ul>
-                    <ul class="ulCad">
+                    <ul class="ulCad" id="ulCad">
                         <li> <a href="./cadastro.html">Cadastro</a></li>
                     </ul>
                     <ul class="ulExit">
@@ -119,7 +119,7 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
 
     if(validarSessao() == true){
 
-
+    ulCad.style.display = 'none';
     post.style.display = 'block';
     b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
 
@@ -288,7 +288,7 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
 }
 
 else{
-    post.style.display = 'none';
+    post.style.display = 'none'
 }
 
 
