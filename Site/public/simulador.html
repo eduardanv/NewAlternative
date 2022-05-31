@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Simulador ♥</title>
+</head>
+
+<body class="bodySim">
+    <h3 class="titleSim">Combinação de roupas</h3>
+    <br>
+    <div class="container">
+        <div class="txtSim">
+            <span>Vamos combinar looks?</span>
+            <br><br>
+            Insira quantas roupas você possui no total:<br>
+            <input id="iptNum" type=number>
+            <br>
+            <button class="btnSim" onclick="calcular()">Combinarrr!</button>
+            <br>
+            <span id="msg"></span>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+
+    function calcular() {
+        var numero = iptNum.value;
+        var soma = numero;
+
+        if (numero != '') {
+            for (i = 1; i < numero; i++) {
+                soma *= i;
+            }
+            alert(`As combinações possíveis são: ${soma}`);
+        }
+
+        else {
+            msg.innerHTML = 'Insira um número!';
+        }
+    }
+
+</script>

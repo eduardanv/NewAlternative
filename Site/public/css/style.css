@@ -236,3 +236,30 @@ a{
    align-items: center;
    justify-content: center;
 }
+
+/* FIM STYLE TELA DE LOGIN */
+
+/* INICIO STYLE TELA SIMULADOR */
+
+.bodySim{
+   background-color: black;
+   color: white;;
+
+}
+.txtSim{
+   /* display: flex; */
+   justify-content: center;
+}
+.pSim{
+   font-size: 15px;
+}
+
+.titleSim{
+   font-size: 30px;
+
+}
+.btnSim{
+   display: flex;
+   justify-content: center;
+}
+/* FIM STYLE TELA SIMULADOR */
