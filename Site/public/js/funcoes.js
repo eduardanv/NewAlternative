@@ -10,11 +10,15 @@ function validarSessao() {
     if (email != null && nome != null) {
         // window.alert(`Seja bem-vindo, ${nome}!`);
         b_usuario.innerHTML = nome;
+        return true;
 
         // finalizarAguardar();
-    // } else {
+    } 
+    // else {
     //     window.location = "../login.html";
     // }
+
+    
 }
 
 function limparSessao() {
@@ -50,5 +54,4 @@ function mostrarModal() {
 function fecharModal() {
     var divModal = document.getElementById("div_modal");
     divModal.style.display = "none";
-}
 }

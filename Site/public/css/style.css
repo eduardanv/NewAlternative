@@ -147,6 +147,12 @@ a{
    font-family: 'Patrick Hand';
    margin-bottom: auto;
 }
+
+.postEstatico1{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
  /* FIM DO STYLE TELA INDEX */
 
 /* STYLE TELA DE CADASTRO */
