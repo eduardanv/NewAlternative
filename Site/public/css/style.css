@@ -221,7 +221,7 @@ a{
    font-size: 20px;
    color: white;
    display: grid;
-    width: 67vh;
+    width: 75vh;
     justify-items: stretch;
 }
 
@@ -277,13 +277,30 @@ a{
    justify-content: center;
    align-items: center;
 }
+
+.iptSim{
+   width: 40vw;
+
+}
 .btnSim{
-   font-family: 'patrick hand';
+   font-family: 'bebas neue';
    background-color: white;
    color: black;
    font-size: 15px;
-   border-radius: 10%;
+   border-radius: 0%;
    width: auto;
+   height: auto;
+   align-items: center;
+   justify-content: center;
+}
+
+.btnSimConf{
+   font-family: 'bebas neue';
+   background-color: white;
+   color: black;
+   font-size: 15px;
+   border-radius: 0%;
+   width: 40vw;
    height: auto;
    align-items: center;
    justify-content: center;

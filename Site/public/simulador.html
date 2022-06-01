@@ -44,17 +44,17 @@
             <h3 class="titleSim">Combinação de roupas</h3>
             <span>Vamos combinar looks? ♥</span>
             <br><br>
-            Informe as opções de roupas superiores (Camisa, body, regata etc...):<br>
-            <input id="iptSuperior">
+            1. Informe as opções de roupas superiores (uma por vez):<br>
+            <input class="iptSim" id="iptSuperior">
             <br><br>
             <button class="btnSim" onclick="cadastrar1()">Cadastrar roupa superior</button>
             <br><br><br>
-            Informe as opções de roupas inferiores (Calça, shorts, saia, etc...) <br>
-            <input id="iptInferior">
+           2. Informe as opções de roupas inferiores (uma por vez): <br>
+            <input class="iptSim" id="iptInferior">
             <br><br>
             <button class="btnSim" onclick="cadastrar2()">Cadastrar roupa inferior</button>
             <br><br>
-            <button class="btnSim" onclick="calcular()">Exibir Combinações!!!...</button>
+            <button class="btnSimConf" onclick="calcular()">Exibir Combinações!!!...</button>
             <br>
             <span id="msg"></span>
         </div>
@@ -111,6 +111,10 @@
                 }
             }
 
+        }
+
+        else{
+            alert('Os campos não podem estar vazios!');
         }
     }
 

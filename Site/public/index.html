@@ -15,7 +15,7 @@
     <title>Posts ♥ </title>
 </head>
 
-<body>
+<body onload ="validarSessao(), atualizarFeed()">
     <div class="tela">
         <!-- SCM Music Player https://www.scmplayer.net -->
 <!-- <script type="text/javascript" src="https://www.scmplayer.net/script.js" 
@@ -42,7 +42,7 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                         <li> <a href="./cadastro.html">Cadastro</a></li>
                     </ul>
                     <ul class="ulExit">
-                        <li><a href = "./login.html"> Logout </a></li>
+                        <li><a href = "./login.html" onclick="LimparSessao()"> Logout </a></li>
                     </ul>
                 </div>
             </div>
