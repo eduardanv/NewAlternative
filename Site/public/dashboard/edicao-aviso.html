@@ -2,11 +2,10 @@
 <html lang="pt-br">
 
 <head>
-    <link rel="shortcut icon" href="../assets/icon/favicon.ico" type="image/x-icon">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AcquaTec | Página Inicial</title>
+    <title>NewAlternative | Home </title>
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="./dashboards.css">
@@ -19,33 +18,12 @@
 </head>
 
 <body onload="validarSessao(), listarInfosDeUm()" style="background-color: #161618;">
-    <!-- <body onload="validarSessao()"> -->
 
     <div class="janela">
-
-
         <div class="header-left">
 
-            <h1>AcquaTec</h1>
-
-            <div class="hello">
-                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
-            </div>
-
             <div class="btn-nav-white">
-                <a href="cards.html">
-                    <h3>Aquários</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./dashboard.html">
-                    <h3>Gráficos</h3>
-                </a>
-            </div>
-
-            <div class="btn-nav-white">
-                <a href="./mural.html">
+                <a href="./index.html">
                     <h3>Mural de Avisos</h3>
                 </a>
             </div>
@@ -115,7 +93,7 @@
 
             if (resposta.ok) {
                 window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
-                window.location = "/dashboard/mural.html"
+                window.location = "/index.html"
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");
             } else {

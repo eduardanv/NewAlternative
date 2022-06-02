@@ -66,7 +66,8 @@ a{
 
 .sobre {
    /* border:3px solid blue; */
-   width: 20vw;
+   width: 40vw;
+
 }
 
 .titulo {
@@ -74,6 +75,8 @@ a{
    font-weight: 900px;
    color: black;
    font-family: 'Sacramento';
+   padding: 2%;
+   margin-right: auto;
 }
 
 .fotoSobre {
@@ -82,10 +85,12 @@ a{
 }
 
 .info {
+
    font-family: 'Balsamiq Sans';
    color: gray;
    font-size: 15px;
 }
+
 
 
 .post {
@@ -114,7 +119,7 @@ a{
 
 .iptConteudo {
    width: 74vw;
-   height: 45vh;
+   height: 20vh;
    word-wrap: break-word;
    font-size: 15px;
 }
@@ -148,10 +153,25 @@ a{
    margin-bottom: auto;
 }
 
+.titlePost{
+   margin-left: 100px;
+}
+
 .postEstatico1{
-   display: flex;
    justify-content: center;
    align-items: center;
+   border: #000000 solid 3px;
+   border-radius: 2%;
+   padding: 2%;
+   box-shadow: 10px 10px rgb(0, 0, 0);
+   width: 70%;
+   height: 20%;
+   margin-left: 100px;
+   font-size: 15px;
+}
+
+.postEstatico1 .container{
+
 }
  /* FIM DO STYLE TELA INDEX */
 
