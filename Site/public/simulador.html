@@ -9,7 +9,7 @@
     <title>Simulador ♥</title>
 </head>
 
-<body class="bodySim">
+<body class="bodySim" onload="validarSessao()">
     <div class="container">
         <div class="navBar"><br>
             <ul class="logo">
@@ -26,14 +26,14 @@
                 <ul class="ulFAQ">
                     <li> FAQ </li>
                 </ul>
-                <ul class="ulCad">
+                <ul class="ulCad" id="ulCad">
                     <li> <a href="./cadastro.html">Cadastro</a></li>
                 </ul>
-                <ul class="ulExit">
-                    <li><a href="./login.html"> Logout </a></li>
+                <ul class="ulLogin" id="ulLogin">
+                    <li><a href="./login.html">Login</a> </li>
                 </ul>
-                <ul class="ulSim">
-                    <li><a href="./simulador.html"></a></li>
+                <ul class="ulExit" id="ulExit" style="display: none">
+                    <li><a href="./login.html" onclick="LimparSessao()"> Logout </a></li>
                 </ul>
             </div>
         </div>
@@ -67,6 +67,12 @@
 
 </html>
 <script>
+
+    if(validarSessao() == true){
+        ulCad.style.display = 'none';
+        post.style.display = 'block';
+        ulExit.style.display = 'block';
+        ulLogin.style.display = 'none';
 
     var roupaSuperior = [];
     var roupaInferior = [];
@@ -117,5 +123,13 @@
             alert('Os campos não podem estar vazios!');
         }
     }
+}
+
+else{
+        ulCad.style.display = 'block';
+        post.style.display = 'none';
+        ulExit.style.display = 'none';
+        ulLogin.style.display = 'block';
+}
 
 </script>

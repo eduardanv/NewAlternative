@@ -38,6 +38,9 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                     <ul class="ulFAQ">
                         <li> FAQ </li>
                     </ul>
+                    <ul class="ulSim">
+                        <li><a href="./simulador.html">Simulador</a></li>
+                    </ul>
                     <ul class="ulCad" id="ulCad">
                         <li> <a href="./cadastro.html">Cadastro</a></li>
                     </ul>
@@ -62,7 +65,7 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                 ♥ | O MUNDO É DOS ESQUISITÕES ♥ </marquee>
         </div>
         <div class="containerHome">
-
+<div>
             <div class="sobre">
                 <div class="titulo"> Sobre a autora </div>
                 <img class="fotoSobre" src="./imgs/img_about.jpeg">
@@ -72,7 +75,8 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                     conhecer pessoas que compartilham deste gosto.
                 </p>
             </div>
-
+        </div>
+        <div>
             <div id="post" class="postagem" style="display: block">
                 <form id="formPost" method="POST" onsubmit="return publicar()">
                     <div>
@@ -80,12 +84,14 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                             <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
                         </div>
                         <label>Título</label>
+                        <br>
                         <input type='title' id='titulo' class="iptTitulo" required=""
                             placeholder="Coloca um assunto pra gente discutir aí, vai ♥">
                     </div>
                     <br><br>
                     <div>
-                        <label>Texto</label>
+                        <label>Conteúdo</label>
+                        <br>
                         <textarea id="descricao" cols="100" rows="30" class="iptConteudo" required=""
                             placeholder="Sobre o que iremos falar?..."></textarea>
                     </div>
@@ -99,12 +105,13 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                 </form>
                 <br><br>
             </div>
+                  
+            <h1 class="titlePost"> ÚLTIMOS POSTS</h1>
             <div id="recents" class="recents">
-                <h1 class="titlePost"> ÚLTIMOS POSTS</h1>
                 <br><br>
                 <div class="div-results">
                     <div id="feed_container" class="feed-container">
-                        <div id="postEstatico1" class="postEstatico1">
+                        <!-- <div id="postEstatico1" class="postEstatico1">
                             <div><h2>Malfeitona</h2></div>
                             <div id="container">
                             <p class="subtitulo">A tatuadora brasileira que se orgulha de fazer desenho ‘feio’
@@ -113,12 +120,14 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
 
                                 O resultado não foi lá grandes coisa, mas ainda assim agradou não somente a eles mas como os amigos também, que passaram a pedir tatuagens para Helen. No começo, ela levava como brincadeira, mas o negócio começou a ficar sério, e ela passou inclusive a cobrar pelo trabalho.</span>
                             <br><br>
-                        </div>
+                        </div> -->
                         </div>
                     </div>
                 </div>
+                
             </div>
-        </div>
+
+    </div>
         <br><br>
 
     </div>
