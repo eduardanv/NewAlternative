@@ -9,7 +9,7 @@
     <title>Simulador ♥</title>
 </head>
 
-<body class="bodySim" onload="validarSessao()">
+<body class="bodySim">
     <div class="container">
         <div class="navBar"><br>
             <ul class="logo">
@@ -59,6 +59,7 @@
             <span id="msg"></span>
         </div>
     </div>
+    <br><br>
     <div class="footer">
         <div class="container">
             Feito com amor por Maria Eduarda ♥ 1CCO
@@ -67,12 +68,6 @@
 
 </html>
 <script>
-
-    if(validarSessao() == true){
-        ulCad.style.display = 'none';
-        post.style.display = 'block';
-        ulExit.style.display = 'block';
-        ulLogin.style.display = 'none';
 
     var roupaSuperior = [];
     var roupaInferior = [];
@@ -123,13 +118,5 @@
             alert('Os campos não podem estar vazios!');
         }
     }
-}
-
-else{
-        ulCad.style.display = 'block';
-        post.style.display = 'none';
-        ulExit.style.display = 'none';
-        ulLogin.style.display = 'block';
-}
 
 </script>

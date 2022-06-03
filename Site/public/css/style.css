@@ -76,12 +76,12 @@ a{
    width: 20vw;
    margin-right: 0%;
    padding-right: 0%;
+   height: 50vh;
 }
 
 .postagem{
    /* border:3px solid blue; */
-   margin-left: 0%;
-
+   margin-left: 30vh;
 }
 
 .titulo {
@@ -131,6 +131,7 @@ a{
    font-size: 20px;
    margin-left: 0px;
  padding-left: 0%;
+ color: black;
 }
 
 .iptConteudo {
@@ -171,7 +172,7 @@ a{
 }
 
 .titlePost{
-   margin-left: 50px;
+   margin-left: 100px;
 }
 
 .postEstatico1{
@@ -198,11 +199,18 @@ a{
    height: 20%;
    margin-bottom: 2%;
    margin-left: 100px;
-   font-size: 15px;
+   font-size: 20px;
+   font-style: none;
 }
 
 .publicacao-nome{
    color:dimgrey;
+}
+
+.publicacao-titulo{
+   font-size: 40px;
+   display: flex;
+   justify-content: center;
 }
 /* #feed_container{
    display: flex;
