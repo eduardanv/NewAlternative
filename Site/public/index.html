@@ -15,7 +15,7 @@
     <title>Posts ♥ </title>
 </head>
 
-<body onload="validarSessao(),atualizarFeed()">
+<body onload="validarSessao(),atualizarFeed(), listar()">
     <div class="tela">
         <!-- SCM Music Player https://www.scmplayer.net -->
         <!-- <script type="text/javascript" src="https://www.scmplayer.net/script.js" 
@@ -65,53 +65,55 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                 ♥ | O MUNDO É DOS ESQUISITÕES ♥ </marquee>
         </div>
         <div class="containerHome">
-<div>
-            <div class="sobre">
-                <div class="titulo"> Sobre a autora </div>
-                <img class="fotoSobre" src="./imgs/img_about.jpeg">
-                <p class="info">
-                    Nascida e criada na cidade de São Paulo, cresci tendo muito contato e convivendo com diferentes
-                    tipos de cultura e estilos, resolvendo criar este blog para papear um pouco sobre o meu estilo, e
-                    conhecer pessoas que compartilham deste gosto.
-                </p>
+            <div id="containerSobre" class="containerSobre">
+                <div class="sobre">
+                    <div class="titulo"> Sobre a autora </div>
+                    <img class="fotoSobre" src="./imgs/img_about.jpeg">
+                    <p class="info">
+                        Nascida e criada na cidade de São Paulo, cresci tendo muito contato e convivendo com diferentes
+                        tipos de cultura e estilos, resolvendo criar este blog para papear um pouco sobre o meu estilo,
+                        e
+                        conhecer pessoas que compartilham deste gosto.
+                    </p>
+                </div>
             </div>
-        </div>
-        <div>
-            <div id="post" class="postagem" style="display: block">
-                <form id="formPost" method="POST" onsubmit="return publicar()">
-                    <div>
-                        <div class="hello">
-                            <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            <div>
+                <div id="post" class="postagem" style="display: block">
+                    <form id="formPost" method="POST" onsubmit="return publicar()">
+                        <div>
+                            <div class="hello">
+                                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+                            </div>
+                            <label>Título</label>
+                            <br>
+                            <input type='title' id='titulo' class="iptTitulo" required=""
+                                placeholder="Coloca um assunto pra gente discutir aí, vai ♥">
                         </div>
-                        <label>Título</label>
+                        <br><br>
+                        <div>
+                            <label>Conteúdo</label>
+                            <br>
+                            <textarea id="descricao" cols="100" rows="30" class="iptConteudo" required=""
+                                placeholder="Sobre o que iremos falar?..."></textarea>
+                        </div>
+                        <div>
+                            <label>Deseja inserir arquivos?</label>
+                            <input type="file" class="arquivo" value="Esolher Arquivo">
+                        </div>
                         <br>
-                        <input type='title' id='titulo' class="iptTitulo" required=""
-                            placeholder="Coloca um assunto pra gente discutir aí, vai ♥">
-                    </div>
+                        <input type="submit" value="Postar" class="submit">
+                        <input type="reset" value="Limpar" class="reset" onclick="limparFormulario()">
+                    </form>
                     <br><br>
-                    <div>
-                        <label>Conteúdo</label>
-                        <br>
-                        <textarea id="descricao" cols="100" rows="30" class="iptConteudo" required=""
-                            placeholder="Sobre o que iremos falar?..."></textarea>
-                    </div>
-                    <div>
-                        <label>Deseja inserir arquivos?</label>
-                        <input type="file" class="arquivo" value="Esolher Arquivo">
-                    </div>
-                    <br>
-                    <input type="submit" value="Postar" class="submit">
-                    <input type="reset" value="Limpar" class="reset" onclick="limparFormulario()">
-                </form>
-                <br><br>
-            </div>
-                  
-            <h1 class="titlePost"> ÚLTIMOS POSTS</h1>
-            <div id="recents" class="recents">
-                <br><br>
-                <div class="div-results">
-                    <div id="feed_container" class="feed-container">
-                        <!-- <div id="postEstatico1" class="postEstatico1">
+                </div>
+
+                <h1 class="titlePost"> ÚLTIMOS POSTS</h1>
+                <div id="recents" class="recents">
+                    <br><br>
+                    <div class="div-results">
+                        <div id="feed_container" class="feed-container">
+                            <br>
+                            <!-- <div id="postEstatico1" class="postEstatico1">
                             <div><h2>Malfeitona</h2></div>
                             <div id="container">
                             <p class="subtitulo">A tatuadora brasileira que se orgulha de fazer desenho ‘feio’
@@ -124,10 +126,10 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
-    </div>
+        </div>
         <br><br>
 
     </div>
@@ -263,17 +265,17 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                             var spanTitulo = document.createElement("span");
                             var spanNome = document.createElement("span");
                             var divDescricao = document.createElement("div");
-                            var divButtons = document.createElement("div");
-                            var btnEditar = document.createElement("button");
-                            var btnDeletar = document.createElement("button");
+                            // var divButtons = document.createElement("div");
+                            // var btnEditar = document.createElement("button");
+                            // var btnDeletar = document.createElement("button");
 
 
-                            spanID.innerHTML = "ID: <b>" + publicacao.idPost + "</b>";
-                            spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b>";
-                            spanNome.innerHTML = "Autor: <b>" + publicacao.nome + "</b>";
-                            divDescricao.innerHTML = "Descrição: <b>" + publicacao.descricao + "</b>";
-                            btnEditar.innerHTML = "Editar";
-                            btnDeletar.innerHTML = "Deletar";
+                            // spanID.innerHTML = "ID: <b>" + publicacao.idPost + "</b><br>";
+                            spanTitulo.innerHTML = "Título: <b>" + publicacao.titulo + "</b><br>";
+                            spanNome.innerHTML = "Postado por: <b>" + publicacao.nome + "</b><br>";
+                            divDescricao.innerHTML = "Conteúdo: <b>" + publicacao.descricao + "</b>";
+                            // btnEditar.innerHTML = "Editar";
+                            // btnDeletar.innerHTML = "Deletar";
 
                             divPublicacao.className = "publicacao";
                             spanTitulo.id = "inputNumero" + publicacao.idPost;
@@ -281,23 +283,23 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                             spanTitulo.className = "publicacao-titulo";
                             divDescricao.className = "publicacao-descricao";
 
-                            divButtons.className = "div-buttons"
+                            // divButtons.className = "div-buttons"
 
-                            btnEditar.className = "publicacao-btn-editar"
-                            btnEditar.id = "btnEditar" + publicacao.idPost;
-                            btnEditar.setAttribute("onclick", `editar(${publicacao.idPost})`);
+                            // btnEditar.className = "publicacao-btn-editar"
+                            // btnEditar.id = "btnEditar" + publicacao.idPost;
+                            // btnEditar.setAttribute("onclick", `editar(${publicacao.idPost})`);
 
-                            btnDeletar.className = "publicacao-btn-editar"
-                            btnDeletar.id = "btnDeletar" + publicacao.idPost;
-                            btnDeletar.setAttribute("onclick", `deletar(${publicacao.idPost})`);
+                            // btnDeletar.className = "publicacao-btn-editar"
+                            // btnDeletar.id = "btnDeletar" + publicacao.idPost;
+                            // btnDeletar.setAttribute("onclick", `deletar(${publicacao.idPost})`);
 
                             divPublicacao.appendChild(spanID);
-                            divPublicacao.appendChild(spanNome);
                             divPublicacao.appendChild(spanTitulo);
                             divPublicacao.appendChild(divDescricao);
-                            divPublicacao.appendChild(divButtons);
-                            divButtons.appendChild(btnEditar);
-                            divButtons.appendChild(btnDeletar);
+                            divPublicacao.appendChild(spanNome);
+                            // divPublicacao.appendChild(divButtons);
+                            // divButtons.appendChild(btnEditar);
+                            // divButtons.appendChild(btnDeletar);
                             feed.appendChild(divPublicacao);
                         }
 
@@ -333,6 +335,8 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
         post.style.display = 'none';
         ulExit.style.display = 'none';
         ulLogin.style.display = 'block';
+
+        atualizarFeed();
     }
 
 </script>

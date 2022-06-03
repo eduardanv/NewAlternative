@@ -62,11 +62,25 @@ a{
 
 }
 
+.containerSobre{
+   margin-right: 0%;
+   padding: 0%;
+   /* border:3px solid blue; */
+   width: 20vw;
+   height: 76vh;
 
+}
 
 .sobre {
    /* border:3px solid blue; */
    width: 20vw;
+   margin-right: 0%;
+   padding-right: 0%;
+}
+
+.postagem{
+   /* border:3px solid blue; */
+   margin-left: 0%;
 
 }
 
@@ -75,8 +89,8 @@ a{
    font-weight: 900px;
    color: black;
    font-family: 'Sacramento';
-   padding: 2%;
-   margin-right: auto;
+   /* padding: 2%; */
+   /* margin-right: auto; */
 }
 
 .fotoSobre {
@@ -105,23 +119,26 @@ a{
 
 .containerHome {
    display: grid;
-  grid-template-columns: 1fr 1fr;
+   grid-template-columns: 0fr 10fr;
    padding-left: 0.5%;
    margin: auto;
 }
 
 .iptTitulo {
-   width: 65vw;
+   width: 40vw;
    height: 5vh;
    font-family: 'bebas neue';
    font-size: 20px;
+   margin-left: 0px;
+ padding-left: 0%;
 }
 
 .iptConteudo {
-   width: 65vw;
-   height: 20vh;
+   width: 40vw;
+   height: 15vh;
    word-wrap: break-word;
    font-size: 15px;
+   padding-left: 0%;
 }
 
 .submit,
@@ -154,7 +171,7 @@ a{
 }
 
 .titlePost{
-   margin-left: 100px;
+   margin-left: 50px;
 }
 
 .postEstatico1{
@@ -179,8 +196,13 @@ a{
    box-shadow: 10px 10px rgb(0, 0, 0);
    width: 70%;
    height: 20%;
+   margin-bottom: 2%;
    margin-left: 100px;
    font-size: 15px;
+}
+
+.publicacao-nome{
+   color:dimgrey;
 }
 /* #feed_container{
    display: flex;
