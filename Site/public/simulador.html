@@ -49,7 +49,7 @@
             <br><br>
             <button class="btnSim" onclick="cadastrar1()">Cadastrar roupa superior</button>
             <br><br><br>
-           2. Informe as opções de roupas inferiores (uma por vez): <br>
+            2. Informe as opções de roupas inferiores (uma por vez): <br>
             <input class="iptSim" id="iptInferior">
             <br><br>
             <button class="btnSim" onclick="cadastrar2()">Cadastrar roupa inferior</button>
@@ -99,22 +99,35 @@
     }
     function calcular() {
 
-        msg.innerHTML = '';
-        roupaSuperior;
-        roupaInferior;
+        msg.innerHTML += '';
+        validacao = true;
 
-        if (roupaSuperior != '' && roupaInferior != '') {
-            msg.innerHTML = `As combinações possíveis são: ${roupaInferior.length * roupaInferior.length}<br>`;
-            for (let i = 0; i < roupaInferior.length; i++) {
-                msg.innerHTML += `<br>${roupaSuperior[i]} combina com: <br>`;
-                for (let index = 0; index < roupaInferior.length; index++) {
-                    msg.innerHTML += `${roupaInferior[index]}<br>`;
+        if (roupaSuperior.length > 0 && roupaInferior.length > 0) {
+            msg.innerHTML = `As combinações possíveis são: ${roupaInferior.length * roupaSuperior.length}<br>`;
+
+            if (roupaSuperior.length >= roupaInferior.length) {
+                for (let i = 0; i < roupaSuperior.length; i++) {
+                    msg.innerHTML += `<br>${roupaSuperior[i]} combina com: <br>`;
+
+                    for (let index = 0; index < roupaInferior.length; index++) {
+                        msg.innerHTML += `${roupaInferior[index]}<br>`;
+                    }
+
                 }
             }
+            else{
+                for (let i = 0; i < roupaInferior.length; i++) {
+                    msg.innerHTML += `<br>${roupaInferior[i]} combina com: <br>`;
 
+                    for (let index = 0; index < roupaSuperior.length; index++) {
+                        msg.innerHTML += `${roupaSuperior[index]}<br>`;
+                    }
+
+                }
+            }
         }
 
-        else{
+        else {
             alert('Os campos não podem estar vazios!');
         }
     }

@@ -14,7 +14,7 @@ function listar() {
             senha
         FROM post p
             INNER JOIN usuario u
-                ON p.fkUsuario = u.idUsuario;
+                ON p.fkUsuario = u.idUsuario order by idPost desc;
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

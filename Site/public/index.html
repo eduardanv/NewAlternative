@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <script src="./js/funcoes.js"></script>
+
     <!-- <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
     <!-- <script src="https://apps.elfsight.com/p/platform.js" defer></script>
         <div class="elfsight-app-c9cda718-e91b-4e8f-b4dc-96f288435642"></div> -->
@@ -15,7 +16,7 @@
     <title>Posts ♥ </title>
 </head>
 
-<body onload="validarSessao(),atualizarFeed(), listar()">
+<body onload="atualizarFeed(), listar()">
     <div class="tela">
         <!-- SCM Music Player https://www.scmplayer.net -->
         <!-- <script type="text/javascript" src="https://www.scmplayer.net/script.js" 
@@ -48,7 +49,7 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                         <li><a href="./login.html">Login</a> </li>
                     </ul>
                     <ul class="ulExit" id="ulExit" style="display: none">
-                        <li><a href="./login.html" onclick="LimparSessao()"> Logout </a></li>
+                        <li><a href="./login.html" onclick="limparSessao()"> Logout </a></li>
                     </ul>
                 </div>
             </div>
@@ -150,17 +151,89 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
 </html>
 
 <script>
+        
+        
+        function atualizarFeed() {
+            //aguardar();
+            fetch("/avisos/listar").then(function (resposta) {
+                if (resposta.ok) {
+                    if (resposta.status == 204) {
+                        var feed = document.getElementById("feed_container");
+                        var mensagem = document.createElement("span");
+                        mensagem.innerHTML = "Nenhum resultado encontrado."
+                        feed.appendChild(mensagem);
+                        throw "Nenhum resultado encontrado!!";
+                    }
+
+                    resposta.json().then(function (resposta) {
+                        console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                        var feed = document.getElementById("feed_container");
+                        feed.innerHTML = "";
+                        for (let i = 0; i < resposta.length; i++) {
+                            var publicacao = resposta[i];
+
+                            // criando e manipulando elementos do HTML via JavaScript
+                            var divPublicacao = document.createElement("div");
+                            var spanID = document.createElement("span");
+                            var spanTitulo = document.createElement("span");
+                            var spanNome = document.createElement("span");
+                            var divDescricao = document.createElement("div");
+                            // var divButtons = document.createElement("div");
+                            // var btnEditar = document.createElement("button");
+                            // var btnDeletar = document.createElement("button");
+
+
+                            // spanID.innerHTML = "ID: <b>" + publicacao.idPost + "</b><br>";
+                            spanTitulo.innerHTML = "<b>" + publicacao.titulo + "</b><br>";
+                            spanNome.innerHTML = "<b>Postado por: </b>" + publicacao.nome + "<br>";
+                            divDescricao.innerHTML = publicacao.descricao + "";
+                            // btnEditar.innerHTML = "Editar";
+                            // btnDeletar.innerHTML = "Deletar";
+
+                            divPublicacao.className = "publicacao";
+                            spanTitulo.id = "inputNumero" + publicacao.idPost;
+                            spanNome.className = "publicacao-nome";
+                            spanTitulo.className = "publicacao-titulo";
+                            divDescricao.className = "publicacao-descricao";
+
+                            // divButtons.className = "div-buttons"
+
+                            // btnEditar.className = "publicacao-btn-editar"
+                            // btnEditar.id = "btnEditar" + publicacao.idPost;
+                            // btnEditar.setAttribute("onclick", `editar(${publicacao.idPost})`);
+
+                            // btnDeletar.className = "publicacao-btn-editar"
+                            // btnDeletar.id = "btnDeletar" + publicacao.idPost;
+                            // btnDeletar.setAttribute("onclick", `deletar(${publicacao.idPost})`);
+
+                            divPublicacao.appendChild(spanID);
+                            divPublicacao.appendChild(spanTitulo);
+                            divPublicacao.appendChild(divDescricao);
+                            divPublicacao.appendChild(spanNome);
+                            // divPublicacao.appendChild(divButtons);
+                            // divButtons.appendChild(btnEditar);
+                            // divButtons.appendChild(btnDeletar);
+                            feed.appendChild(divPublicacao);
+                        }
+
+                        // finalizarAguardar();
+                    });
+                } else {
+                    throw ('Houve um erro na API!');
+                }
+            }).catch(function (resposta) {
+                console.error(resposta);
+                // finalizarAguardar();
+            });
+        }
 
     if (validarSessao() == true) {
-
-        ulCad.style.display = 'none';
-        post.style.display = 'block';
-        ulExit.style.display = 'block';
         ulLogin.style.display = 'none';
         b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
-
-
-
+        ulExit.style.display = 'block';
+        ulCad.style.display = 'none';
+        post.style.display = 'block';
         function limparFormulario() {
             document.getElementById("formPost").reset();
         }
@@ -239,80 +312,6 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
             });
         }
 
-        function atualizarFeed() {
-            //aguardar();
-            fetch("/avisos/listar").then(function (resposta) {
-                if (resposta.ok) {
-                    if (resposta.status == 204) {
-                        var feed = document.getElementById("feed_container");
-                        var mensagem = document.createElement("span");
-                        mensagem.innerHTML = "Nenhum resultado encontrado."
-                        feed.appendChild(mensagem);
-                        throw "Nenhum resultado encontrado!!";
-                    }
-
-                    resposta.json().then(function (resposta) {
-                        console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-                        var feed = document.getElementById("feed_container");
-                        feed.innerHTML = "";
-                        for (let i = 0; i < resposta.length; i++) {
-                            var publicacao = resposta[i];
-
-                            // criando e manipulando elementos do HTML via JavaScript
-                            var divPublicacao = document.createElement("div");
-                            var spanID = document.createElement("span");
-                            var spanTitulo = document.createElement("span");
-                            var spanNome = document.createElement("span");
-                            var divDescricao = document.createElement("div");
-                            // var divButtons = document.createElement("div");
-                            // var btnEditar = document.createElement("button");
-                            // var btnDeletar = document.createElement("button");
-
-
-                            // spanID.innerHTML = "ID: <b>" + publicacao.idPost + "</b><br>";
-                            spanTitulo.innerHTML = "<b>" + publicacao.titulo + "</b><br>";
-                            spanNome.innerHTML = "<b>Postado por: </b>" + publicacao.nome + "<br>";
-                            divDescricao.innerHTML = publicacao.descricao + "";
-                            // btnEditar.innerHTML = "Editar";
-                            // btnDeletar.innerHTML = "Deletar";
-
-                            divPublicacao.className = "publicacao";
-                            spanTitulo.id = "inputNumero" + publicacao.idPost;
-                            spanNome.className = "publicacao-nome";
-                            spanTitulo.className = "publicacao-titulo";
-                            divDescricao.className = "publicacao-descricao";
-
-                            // divButtons.className = "div-buttons"
-
-                            // btnEditar.className = "publicacao-btn-editar"
-                            // btnEditar.id = "btnEditar" + publicacao.idPost;
-                            // btnEditar.setAttribute("onclick", `editar(${publicacao.idPost})`);
-
-                            // btnDeletar.className = "publicacao-btn-editar"
-                            // btnDeletar.id = "btnDeletar" + publicacao.idPost;
-                            // btnDeletar.setAttribute("onclick", `deletar(${publicacao.idPost})`);
-
-                            divPublicacao.appendChild(spanID);
-                            divPublicacao.appendChild(spanTitulo);
-                            divPublicacao.appendChild(divDescricao);
-                            divPublicacao.appendChild(spanNome);
-                            // divPublicacao.appendChild(divButtons);
-                            // divButtons.appendChild(btnEditar);
-                            // divButtons.appendChild(btnDeletar);
-                            feed.appendChild(divPublicacao);
-                        }
-
-                        // finalizarAguardar();
-                    });
-                } else {
-                    throw ('Houve um erro na API!');
-                }
-            }).catch(function (resposta) {
-                console.error(resposta);
-                // finalizarAguardar();
-            });
-        }
 
         function testar() {
             aguardar();
