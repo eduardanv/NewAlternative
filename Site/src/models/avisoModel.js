@@ -58,6 +58,12 @@ function listarPorUsuario(idUsuario) {
     return database.executar(instrucao);
 }
 
+function listarUsuarios(idUsuario) {
+    var instrucao = `SELECT nome as 'Nome do Usuário', COUNT(idPost) as 'Número de postagens' from Post join Usuario where fkUsuario = idUsuario  where idUsuario = ${idUsuario} group by fkUsuario;`
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function publicar(titulo, descricao, idUsuario) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function publicar(): ", titulo, descricao, idUsuario);
     var instrucao = `
@@ -67,10 +73,10 @@ function publicar(titulo, descricao, idUsuario) {
     return database.executar(instrucao);
 }
 
-function editar(novaDescricao, idPost) {
+function editar(novoTitulo, novaDescricao, idPost) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function editar(): ", novaDescricao, idPost);
     var instrucao = `
-        UPDATE post SET descricao = '${novaDescricao}' WHERE id = ${idPost};
+        UPDATE post SET descricao = '${novaDescricao}', titulo = '${novoTitulo}' WHERE idPost = ${idPost};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -79,7 +85,7 @@ function editar(novaDescricao, idPost) {
 function deletar(idPost) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletar():", idPost);
     var instrucao = `
-        DELETE FROM Post WHERE id = ${idPost};
+        DELETE FROM Post WHERE idPost = ${idPost};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

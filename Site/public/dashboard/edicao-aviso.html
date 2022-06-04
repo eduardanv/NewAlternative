@@ -5,10 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NewAlternative | Home </title>
+    <title>NewAlternative | Editar </title>
 
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="./dashboards.css">
     <script src="../js/funcoes.js"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -17,54 +16,67 @@
         rel="stylesheet">
 </head>
 
-<body onload="validarSessao(), listarInfosDeUm()" style="background-color: #161618;">
+<body class="bodyEditar" onload="validarSessao(), listarInfosDeUm()">
 
     <div class="janela">
         <div class="header-left">
 
-            <div class="btn-nav-white">
-                <a href="./index.html">
-                    <h3>Mural de Avisos</h3>
-                </a>
-            </div>
-
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+            <div class="container">
+                <div class="navBar"><br>
+                    <ul class="logo">
+                        <li><a href="../index.html"><img src="../imgs/logotipo.png"></a></li>
+                    </ul>
+                    <div class="vazio"></div>
+                    <div class="vazio"></div>
+                    <div class="vazio"></div>
+                    <div class="vazio"></div>
+                    <div class="vazio"></div>
+                    <div class="vazio"></div>
+                    <div class="login">
+                        <ul class="ulSim">
+                            <li><a href="./simulador.html">Simulador</a></li>
+                        </ul>
+                        <ul class="ulLogin">
+                            <li><a href="../login.html" onclick="limparSessao()">LOGOUT</a></li>
+                        </ul>
+                        <!-- <ul class="ulExit">
+                                                    <li>Cadastro </li>
+                                            </ul> -->
+                    </div>
+                </div>
             </div>
 
         </div>
 
         <div class="dash-right">
 
-            <div class="avisos">
+            <div class="posts">
                 <div class="container">
-                    <h1>Editar um aviso</h1>
+                    <h1 class="titleEditPost">Editar postagem</h1>
                     <div class="div-form">
                         <label>
                             ID:
-                            <br>
-                            <input id="input_id" maxlength="100" type="text" style="color: rgb(196, 196, 196)" disabled>
+                            <input id="iptId" maxlength="100" type="text" style="color: rgb(196, 196, 196)" disabled + sessionStorage.getItem(ID_USUARIO)>
                         </label>
+                        <br>
                         <label>
                             Autor:
-                            <br>
-                            <input id="input_nome" maxlength="100" type="text" style="color: rgb(196, 196, 196)"
+                            <input id="iptNome" maxlength="100" type="text" style="color: rgb(196, 196, 196)"
                                 disabled>
                         </label>
+                        <br>
                         <label>
                             Título:
-                            <br>
-                            <input id="input_titulo" maxlength="100" type="text" style="color: rgb(196, 196, 196)"
-                                disabled>
+                            <input id="iptTitulo" maxlength="100" type="text">
                         </label>
                         <br>
                         <label>
-                            Descrição (máximo de 250 caracteres):
+                            Descrição (máximo de 2000 caracteres):
                             <br>
-                            <textarea id="textarea_descricao" maxlength="250" rows="5"></textarea>
+                            <textarea id="textarea_descricao" class="iptConteudo" maxlength="250" rows="5"></textarea>
                         </label>
                         <br>
-                        <button onclick="editar()">Editar</button>
+                        <button class = "btnEditar" onclick="editar()">Editar</button>
                     </div>
 
                 </div>
@@ -87,12 +99,13 @@
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
+                titulo: iptTitulo.value,
                 descricao: textarea_descricao.value
             })
         }).then(function (resposta) {
 
             if (resposta.ok) {
-                window.alert("Post atualizado com sucesso pelo usuario de email: " + sessionStorage.getItem("EMAIL_USUARIO") + "!");
+                window.alert("Post atualizado com sucesso pelo usuario de ID: " + sessionStorage.getItem("ID_USUARIO") + "!");
                 window.location = "/index.html"
             } else if (resposta.status == 404) {
                 window.alert("Deu 404!");

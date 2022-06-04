@@ -39,22 +39,23 @@ ul {
 
 }
 
-a{
+a {
    text-decoration: none;
-   color:white;
+   color: white;
 }
 
 .logo {
    display: flex;
    align-items: center;
    justify-content: space-between;
+   padding-top: 0.70%;
    width: auto;
    height: auto;
-
 }
 
 
-.login,.faq {
+.login,
+.faq {
    display: flex;
    justify-content: space-between;
    justify-items: flex-end;
@@ -62,7 +63,7 @@ a{
 
 }
 
-.containerSobre{
+.containerSobre {
    margin-right: 0%;
    padding: 0%;
    /* border:3px solid blue; */
@@ -79,7 +80,7 @@ a{
    height: 50vh;
 }
 
-.postagem{
+.postagem {
    /* border:3px solid blue; */
    margin-left: 30vh;
 }
@@ -130,8 +131,8 @@ a{
    font-family: 'bebas neue';
    font-size: 20px;
    margin-left: 0px;
- padding-left: 0%;
- color: black;
+   padding-left: 0%;
+   color: black;
 }
 
 .iptConteudo {
@@ -144,11 +145,18 @@ a{
 
 .submit,
 .reset {
+   border: #000000 solid 3px;
+   border-radius: 2%;
+   /* padding: 2%; */
+   box-shadow: 2px 2px rgb(0, 0, 0);
+   width: 58px;
+   height: 25px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   justify-items: center;
    font-family: 'bebas neue';
-   background-color: black;
-   color: white;
    font-size: 15px;
-   border-radius: 20%;
 }
 
 .arquivo {
@@ -171,11 +179,11 @@ a{
    margin-bottom: auto;
 }
 
-.titlePost{
+.titlePost {
    margin-left: 100px;
 }
 
-.postEstatico1{
+.postEstatico1 {
    justify-content: center;
    align-items: center;
    border: #000000 solid 3px;
@@ -188,7 +196,7 @@ a{
    font-size: 15px;
 }
 
-.publicacao{
+.publicacao {
    justify-content: center;
    align-items: center;
    border: #000000 solid 3px;
@@ -203,15 +211,43 @@ a{
    font-style: none;
 }
 
-.publicacao-nome{
-   color:dimgrey;
+.publicacao-nome {
+   color: dimgrey;
 }
 
-.publicacao-titulo{
+.publicacao-titulo {
    font-size: 40px;
    display: flex;
    justify-content: center;
 }
+
+.div-buttons{
+   /* border: 3px green solid; */
+   width: fit-content;
+    margin-left: 100vh;
+}
+
+.publicacao-btn-editar {
+   border: #000000 solid 3px;
+   border-radius: 2%;
+   padding: 2%;
+   box-shadow: 2px 2px rgb(0, 0, 0);
+   width: 58px;
+   height: 31.5px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   justify-items: center;
+   font-family: 'bebas neue';
+}
+
+.msgPublicacao{
+   display: flex;
+   justify-content: center;
+   font-size: 30px;
+   color: gray;
+}
+
 /* #feed_container{
    display: flex;
    flex-direction: row;
@@ -232,27 +268,27 @@ a{
    margin-bottom: 80px;
 } */
 
- /* FIM DO STYLE TELA INDEX */
+/* FIM DO STYLE TELA INDEX */
 
 /* STYLE TELA DE CADASTRO */
 
-.txtPassaCad{
+.txtPassaCad {
    color: rgb(0, 0, 0);
 }
 
-.bodyCad{
+.bodyCad {
    background-color: rgb(255, 255, 255);
 }
 
 
-.divCad{
+.divCad {
    display: flex;
    justify-content: center;
    align-items: center;
    border-radius: 0.5%;
 }
 
-.divCad .container{
+.divCad .container {
 
    background: rgb(0, 0, 0);
    /* backdrop-filter: blur(10px);
@@ -262,12 +298,12 @@ a{
    font-size: 20px;
    color: white;
    display: grid;
-    width: 67vh;
-    justify-items: stretch;
+   width: 67vh;
+   justify-items: stretch;
 
 }
 
-.btnCad{
+.btnCad {
    font-family: 'bebas neue';
    background-color: white;
    color: black;
@@ -283,34 +319,35 @@ a{
 
 /* STYLE TELA DE LOGIN */
 
-.bodyLogin{
+.bodyLogin {
    background-color: white;
 }
 
-.txtOla{
+.txtOla {
    justify-content: center;
    align-items: center;
    display: flex;
 }
 
-.formLogin{
+.formLogin {
    display: flex;
    justify-content: center;
    align-items: center;
    border-radius: 0.5%;
 }
-.formLogin .container{
+
+.formLogin .container {
    background: rgb(0, 0, 0);
    justify-content: center;
    align-items: center;
    font-size: 20px;
    color: white;
    display: grid;
-    width: 75vh;
-    justify-items: stretch;
+   width: 75vh;
+   justify-items: stretch;
 }
 
-.btnLogin{
+.btnLogin {
    font-family: 'bebas neue';
    background-color: white;
    color: black;
@@ -326,19 +363,21 @@ a{
 
 /* INICIO STYLE TELA SIMULADOR */
 
-.bodySim{
+.bodySim {
    background-color: black;
-   color: white;;
+   color: white;
+   ;
 
 }
 
-.divSim{
-      display: flex;
+.divSim {
+   display: flex;
    justify-content: center;
    align-items: center;
    border-radius: 0.5%;
 }
-.divSim .container{
+
+.divSim .container {
    background: rgb(0, 0, 0);
 
    font-family: 'patrick hand';
@@ -347,27 +386,29 @@ a{
    font-size: 20px;
    color: white;
    /* display: grid; */
-    width: 67vh;
-    justify-items: stretch;
+   width: 67vh;
+   justify-items: stretch;
    /* display: flex; */
    justify-content: center;
 }
-.span{
+
+.span {
    font-size: 15px;
 }
 
-.titleSim{
+.titleSim {
    font-size: 30px;
    justify-items: center;
    justify-content: center;
    align-items: center;
 }
 
-.iptSim{
+.iptSim {
    width: 40vw;
 
 }
-.btnSim{
+
+.btnSim {
    font-family: 'bebas neue';
    background-color: white;
    color: black;
@@ -379,7 +420,7 @@ a{
    justify-content: center;
 }
 
-.btnSimConf{
+.btnSimConf {
    font-family: 'bebas neue';
    background-color: white;
    color: black;
@@ -390,4 +431,98 @@ a{
    align-items: center;
    justify-content: center;
 }
+
 /* FIM STYLE TELA SIMULADOR */
+
+/* STYLE TELA DE EDIÇÃO DE POST */
+
+.bodyEditar{
+   background-color: white;
+   color: block;
+}
+
+.titleEditPost{
+   margin-left: 622px;
+   justify-items: center;
+   justify-content: center;
+   align-items: center;
+   /* border: solid; */
+   width: 176px;
+}
+
+.btnEditar{
+   border: #000000 solid 3px;
+   border-radius: 2%;
+   padding: 2%;
+   box-shadow: 2px 2px rgb(0, 0, 0);
+   width: 58px;
+   height: 31.5px;
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   justify-items: center;
+   font-family: 'bebas neue';
+}
+
+.div-form{
+   width: fit-content;
+   margin-left: 100vh;
+}
+
+.posts .container{
+  justify-content: center;
+}
+
+/* FIM STYLE TELA DE EDIÇÃO DE POSTS */
+
+.titleRank{
+   margin-left: 600px;
+   justify-items: center;
+   justify-content: center;
+   align-items: center;
+   /* border: solid; */
+   width: 300px;
+}
+
+.rank .container{
+   border: #000000 solid;
+   height: auto;
+   width: 60%;
+   align-items: center;
+   justify-content: center;
+   display: flex;
+   justify-items: center;
+   margin-left: 300px;
+}
+
+
+/* FIM DO STYLE DA TELA RANKING */
+
+/* INICIO STYLE TELA FAQ */
+.titleFAQ{
+   margin-left: 600px;
+   justify-items: center;
+   justify-content: center;
+   align-items: center;
+   /* border: solid; */
+   width: 400px;
+}
+.faq_feed{
+   display: grid;
+
+}
+.faq_feed .container{
+   justify-content: center;
+   align-items: center;
+   border: #000000 solid 3px;
+   border-radius: 2%;
+   padding: 2%;
+   box-shadow: 10px 10px rgb(0, 0, 0);
+   width: 40%;
+   height: auto;
+   margin-bottom: 2%;
+   margin-left: 400px;
+   font-size: 20px;
+   font-style: none;
+}
+/* FIM STYLE TELA FAQ */

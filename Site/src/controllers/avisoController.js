@@ -96,8 +96,8 @@ function publicar(req, res) {
 function editar(req, res) {
     var novaDescricao = req.body.descricao;
     var idPost = req.params.idPost;
-
-    avisoModel.editar(novaDescricao, idPost)
+    var novoTitulo = req.body.titulo;
+    avisoModel.editar(novoTitulo,novaDescricao, idPost)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -110,6 +110,11 @@ function editar(req, res) {
                 res.status(500).json(erro.sqlMessage);
             }
         );
+
+}
+
+function listarUsuarios(req, res) {
+    var idUsuario = req.params.fkUsuario;
 
 }
 
@@ -138,5 +143,6 @@ module.exports = {
     pesquisarDescricao,
     publicar,
     editar,
-    deletar
+    deletar,
+    listarUsuarios
 }

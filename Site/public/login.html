@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="imagem/png" href="./imgs/favicon.png"/>
     <script src="./js/funcoes.js"></script>
     <title>Login ♥</title>
 </head>
@@ -38,7 +39,7 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                     <div class="vazio"></div>
                     <div class="faq">
                         <ul class="ulFAQ">
-                            <li> FAQ </li>
+                            <li> <a href="./faq.html">FAQ</a></li>
                         </ul>
                         <ul class="ulSim">
                             <li><a href="./simulador.html">Simulador</a></li>
@@ -109,6 +110,12 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
 
 <script>
 
+function key(){
+        if(event.key === 'Enter'){
+        return entrar()
+
+        }else{}
+    }
 
     function entrar() {
 
@@ -117,12 +124,19 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
 
         if (emailVar == "" || senhaVar == "") {
             cardErro.style.display = "block"
-            alert('Ops... Todos os campos estão vazios :(');
+            alert('Ops...Há campos vazios :(');
             // finalizarAguardar();
             return false;
         }
+
+        else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1){
+            
+           alert('E-mail inválido');
+           return false;
+        }
         else {
-            setInterval(sumirMensagem, 5000)
+            alert('Autenticando...')
+            setInterval(sumirMensagem, 2000)
         }
 
         console.log("FORM LOGIN: ", emailVar);

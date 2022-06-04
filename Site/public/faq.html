@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="imagem/png" href="./imgs/favicon.png"/>
+    <script src="./js/funcoes.js"></script>
+    <title>Perguntas Frequentes ♥</title>
+</head>
+<body onload="validarSessao()">
+    <div class="container">
+        <div class="navBar"><br>
+            <ul class="logo">
+                <li><a href="./index.html"><img id="logo" src="./imgs/logotipo.png"></a></li>
+            </ul>
+
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="faq">
+                <ul class="ulFAQ">
+                    <li> <a href="./faq.html">FAQ</a></li>
+                </ul>
+                <ul class="ulSim">
+                    <li><a href="./simulador.html">Simulador</a></li>
+                </ul>
+                <ul class="ulCad" id="ulCad">
+                    <li> <a href="./cadastro.html">Cadastro</a></li>
+                </ul>
+                <ul class="ulLogin" id="ulLogin">
+                    <li><a href="./login.html">Login</a> </li>
+                </ul>
+                <ul class="ulExit" id="ulExit" style="display: none">
+                    <li><a href="./login.html" onclick="limparSessao()"> Logout </a></li>
+                </ul>
+                <ul class="ulRank" id="ulRank">
+                    <li><a href="./ranking.html"> RANKING </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="faq_feed">
+        <h1 class="titleFAQ">PERGUNTAS FREQUENTES ♥</h1>
+        <div class="container">
+            <b>Como me cadastrar no site? </b>
+            <br>
+            É fácil, fácil. É só clicar em 'Cadastro' na barra de navegação acima, e preencher seus dados mais importantes pra nós: Nome, E-mail, Senha, e data de nascimento!
+            <br>
+            <br>
+            <b>Como fazer login?</b>
+            <br>
+            Mais fácil ainda!!! É só clicar em 'Login' na barra de navegação, mas tem que ser com o e-mail e senha que você se cadastrou! Não esquece, hein.
+            <br>
+            <br>
+            <b>Como usar o simulador? </b>
+            <br>
+            Escreva partes de cima e partes de baixo (uma de cada vez, viu?) e no final, clique em 'Exibir combinações'. O sistema vai te dizer quantas combinações 
+            possíveis existem e quais são elas. 
+            <br>
+            <br>
+            <b>Em caso de mais dúvidas:</b>
+            <br>
+            <b>entre em contato comigo ♥</b> <br>
+            e-mail: maria.neves@sptech.school <br>
+            whatsapp: (11) 97472-1438
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="container">
+            Feito com amor por Maria Eduarda ♥ 1CCO
+        </div>
+</body>
+</html>
+
+<script>
+            if(validarSessao() == true){
+             ulLogin.style.display = 'none';
+            ulExit.style.display = 'block';
+            ulCad.style.display = 'none';
+            }
+
+</script>
