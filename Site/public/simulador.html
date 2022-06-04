@@ -26,9 +26,9 @@
             <div class="vazio"></div>
             <div class="faq">
                 <ul class="ulFAQ">
-                    <li> FAQ </li>
+                    <li> <a href="./faq.html">FAQ</a></li>
                 </ul>
-                <ul class="ulCad" id="ulCad">
+                <!-- <ul class="ulCad" id="ulCad">
                     <li> <a href="./cadastro.html">Cadastro</a></li>
                 </ul>
                 <ul class="ulLogin" id="ulLogin">
@@ -36,7 +36,7 @@
                 </ul>
                 <ul class="ulExit" id="ulExit" style="display: none">
                     <li><a href="./login.html" onclick="limparSessao()"> Logout </a></li>
-                </ul>
+                </ul> -->
             </div>
         </div>
     </div>
@@ -75,7 +75,7 @@
     var roupaInferior = [];
 
 
-    if(sessionStorage.ID_USUARIO == 1){
+    if(validarSessao() == true){
         ulLogin.style.display = 'none';
         ulExit.style.display = 'block';
         ulCad.style.display = 'none';

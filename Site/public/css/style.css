@@ -221,10 +221,10 @@ a {
    justify-content: center;
 }
 
-.div-buttons{
+.div-buttons {
    /* border: 3px green solid; */
    width: fit-content;
-    margin-left: 100vh;
+   margin-left: 100vh;
 }
 
 .publicacao-btn-editar {
@@ -241,7 +241,7 @@ a {
    font-family: 'bebas neue';
 }
 
-.msgPublicacao{
+.msgPublicacao {
    display: flex;
    justify-content: center;
    font-size: 30px;
@@ -436,12 +436,12 @@ a {
 
 /* STYLE TELA DE EDIÇÃO DE POST */
 
-.bodyEditar{
+.bodyEditar {
    background-color: white;
    color: block;
 }
 
-.titleEditPost{
+.titleEditPost {
    margin-left: 622px;
    justify-items: center;
    justify-content: center;
@@ -450,7 +450,7 @@ a {
    width: 176px;
 }
 
-.btnEditar{
+.btnEditar {
    border: #000000 solid 3px;
    border-radius: 2%;
    padding: 2%;
@@ -464,19 +464,19 @@ a {
    font-family: 'bebas neue';
 }
 
-.div-form{
+.div-form {
    width: fit-content;
    margin-left: 100vh;
 }
 
-.posts .container{
-  justify-content: center;
+.posts .container {
+   justify-content: center;
 }
 
 /* FIM STYLE TELA DE EDIÇÃO DE POSTS */
 
-.titleRank{
-   margin-left: 600px;
+.titleRank {
+   margin-left: 550px;
    justify-items: center;
    justify-content: center;
    align-items: center;
@@ -484,22 +484,87 @@ a {
    width: 300px;
 }
 
-.rank .container{
-   border: #000000 solid;
+
+.conteudo .container {
    height: auto;
-   width: 60%;
-   align-items: center;
+   width: 30%;
+   /* align-items: center; */
    justify-content: center;
-   display: flex;
+   /* display: flex; */
    justify-items: center;
-   margin-left: 300px;
+   /* margin-left: 30%; */
+   padding: 1%;
+   margin-left: 35%;
+   box-sizing: border-box;
+   /* border: 1px solid red; */
+   display: -webkit-inline-box;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   padding-top: 1rem;
+   justify-content: center;
+   align-items: center;
+   border: #000000 solid 3px;
+   border-radius: 2%;
+   padding: 2%;
+   box-shadow: 10px 10px rgb(0, 0, 0);
+   width: 70%;
+   height: 20%;
+   margin-bottom: 2%;
+   margin-left: 100px;
+   font-size: 20px;
+   font-style: none;
+
+}
+
+
+
+.titulos {
+   display: flex;
+   width: 95%;
+   height: 8px;
+   border: #000000 solid 3px;
+   border-radius: 2%;
+   padding: 2%;
+   box-shadow: 5px 5px rgb(0, 0, 0);
+   margin-bottom: 2%;
+   font-size: 20px;
+   font-style: none;
+   flex-wrap: wrap;
+   /* padding-top: 1rem; */
+   flex-direction: row;
+   justify-content: space-around;
+}
+
+.rank_container {
+   display: block;
+   width: 100%;
+   /* margin-left: 50px; */
+   box-sizing: border-box;
+   /* border: 1px solid red; */
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   /* padding-top: 1rem; */
+   flex-direction: row;
+   justify-content: space-around;
+
+   /* padding-top: 1rem; */
+}
+
+.spnNumero {
+   margin-left: 45%;
+}
+
+.spnNome {
+   margin-left: 20%;
 }
 
 
 /* FIM DO STYLE DA TELA RANKING */
 
 /* INICIO STYLE TELA FAQ */
-.titleFAQ{
+.titleFAQ {
    margin-left: 600px;
    justify-items: center;
    justify-content: center;
@@ -507,11 +572,13 @@ a {
    /* border: solid; */
    width: 400px;
 }
-.faq_feed{
+
+.faq_feed {
    display: grid;
 
 }
-.faq_feed .container{
+
+.faq_feed .container {
    justify-content: center;
    align-items: center;
    border: #000000 solid 3px;
@@ -525,4 +592,5 @@ a {
    font-size: 20px;
    font-style: none;
 }
+
 /* FIM STYLE TELA FAQ */

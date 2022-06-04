@@ -58,8 +58,8 @@ function listarPorUsuario(idUsuario) {
     return database.executar(instrucao);
 }
 
-function listarUsuarios(idUsuario) {
-    var instrucao = `SELECT nome as 'Nome do Usuário', COUNT(idPost) as 'Número de postagens' from Post join Usuario where fkUsuario = idUsuario  where idUsuario = ${idUsuario} group by fkUsuario;`
+function listarUsuarios() {
+    var instrucao = `SELECT nome, COUNT(idPost) as 'qtdePosts' from Post join Usuario on fkUsuario = idUsuario group by fkUsuario order by qtdePosts desc;`
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
@@ -97,5 +97,6 @@ module.exports = {
     pesquisarDescricao,
     publicar,
     editar,
-    deletar
+    deletar,
+    listarUsuarios
 }

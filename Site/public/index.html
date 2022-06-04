@@ -49,12 +49,13 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                     <ul class="ulLogin" id="ulLogin">
                         <li><a href="./login.html">Login</a> </li>
                     </ul>
-                    <ul class="ulExit" id="ulExit" style="display: none">
-                        <li><a href="./login.html" onclick="limparSessao()"> Logout </a></li>
-                    </ul>
                     <ul class="ulRank" id="ulRank">
                         <li><a href="./ranking.html"> RANKING </a></li>
                     </ul>
+                    <ul class="ulExit" id="ulExit" style="display: none">
+                        <li><a href="./login.html" onclick="limparSessao()"> Logout </a></li>
+                    </ul>
+                  
                 </div>
             </div>
         </div>
@@ -246,6 +247,7 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
         ulExit.style.display = 'block';
         ulCad.style.display = 'none';
         post.style.display = 'block';
+        
         function limparFormulario() {
             document.getElementById("formPost").reset();
         }

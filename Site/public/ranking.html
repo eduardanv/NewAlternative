@@ -6,84 +6,99 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="icon" type="imagem/png" href="./imgs/favicon.png"/>
+    <link rel="icon" type="imagem/png" href="./imgs/favicon.png" />
     <script src="./js/funcoes.js"></script>
     <title>Ranking ♥</title>
 </head>
 
 <body class="bodyRanking" onload="listarUsuarios()">
-<div class="container">
-    <div class="navBar"><br>
-        <ul class="logo">
-            <li><a href="./index.html"><img src="./imgs/logotipo.png"></a></li>
-        </ul>
-
-        <div class="vazio"></div>
-        <div class="vazio"></div>
-        <div class="vazio"></div>
-        <div class="vazio"></div>
-        <div class="vazio"></div>
-        <div class="vazio"></div>
-        <div class="faq">
-            <ul class="ulFAQ">
-                <li> FAQ </li>
-            </ul>
-            <ul class="ulExit" id="ulExit">
-                <li><a href="./login.html" onclick="limparSessao()"> Logout </a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<br>
-<div class="rank" id="rank">
-    <h1 class="titleRank">RANKING DE USUARIOS ATIVOS</h1>
     <div class="container">
-        <div id="feed_container">
-        <div>
-            NOME                                       NÚMERO DE POSTAGENS 
-        </div>
+        <div class="navBar"><br>
+            <ul class="logo">
+                <li><a href="./index.html"><img src="./imgs/logotipo.png"></a></li>
+            </ul>
+
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="vazio"></div>
+            <div class="faq">
+                <ul class="ulFAQ">
+                    <li> <a href="./faq.html">FAQ</a></li>
+                </ul>
+
+            </div>
         </div>
     </div>
-</div>
-<br><br>
-<div class="footer">
-    <div class="container">
-        Feito com amor por Maria Eduarda ♥ 1CCO
+    <br>
+    <div class="conteudo" id="conteudo">
+        <h1 class="titleRank">RANKING DE USUARIOS ATIVOS</h1>
+        <div class="container">
+            <div id="titulos" class="titulos">
+                <div class="vazio">NOME</div>
+                <div class="vazio">NÚMERO DE POSTAGENS</div>
+            </div>
+            <div id="rank_container" class="rank_container">
+            </div>
+        </div>
+            <br>
+            <br>
+            <br>
     </div>
-<script>
-    function listarUsuarios() {
-        
-     fetch("/listarUsuarios/:idUsuario").then(function (resposta){
-            if (resposta.ok) {
-                if (resposta.status == 204) {
-                    var feed = document.getElementById("feed_container");
-                    var mensagem = document.createElement("span");
-                    mensagem.className = "msgPublicacao";
-                    mensagem.innerHTML = "Tudo vazio por aqui."
-                    feed.appendChild(mensagem);
-                    throw "Nenhum resultado encontrado!!";
-                }
-           
+    </div>
+    <br><br><br><br><br><br>
+    <div class="footer">
+        <div class="container">
+            Feito com amor por Maria Eduarda ♥ 1CCO
+        </div>
+        <script>
+            function listarUsuarios() {
 
-                resposta.json().then(function (resposta) {
-                    console.log("Dados recebidos: ", JSON.stringify(resposta));
-
-                    var feed = document.getElementById("feed_container");
-                    feed.innerHTML = "";
-                    for (let i = 0; i < resposta.length; i++) {
-                        var publicacao = resposta[i];
-
-                        // criando e manipulando elementos do HTML via JavaScript
+                fetch(`avisos/listarUsuarios`).then(function (resposta) {
+                    if (resposta.ok) {
+                        if (resposta.status == 204) {
+                            var feed = document.getElementById("feed_container");
+                            var mensagem = document.createElement("span");
+                            mensagem.className = "msgPublicacao";
+                            mensagem.innerHTML = "Tudo vazio por aqui."
+                            feed.appendChild(mensagem);
+                            throw "Nenhum resultado encontrado!!";
                         }
 
-                    });
 
-                }
-         else {
-                throw ('Houve um erro na API!');
+                        resposta.json().then(function (resposta) {
+                            console.log("Dados recebidos: ", JSON.stringify(resposta));
+
+                            var rank = document.getElementById("rank_container");
+                            rank.innerHTML = "";
+                            for (let i = 0; i < resposta.length; i++) {
+                                var publicacao = resposta[i];
+
+                                var nomeUsuario = document.createElement("span");
+                                // var divVazia = document.createElement("div");
+                                var numeroPostagem = document.createElement("span");
+
+                                nomeUsuario.innerHTML = publicacao.nome;
+                                numeroPostagem.innerHTML = publicacao.qtdePosts + '<br>';
+                                // divVazia.className = "divVazia";
+                                numeroPostagem.className = "spnNumero";
+                                nomeUsuario.className = "spnNome";
+                                rank_container.appendChild(nomeUsuario);
+                                // rank_container.appendChild(divVazia);
+                                rank_container.appendChild(numeroPostagem);
+
+                            }
+
+                        });
+
+                    }
+                    else {
+                        throw ('Houve um erro na API!');
+                    }
+                }).catch(function (resposta) {
+                    console.error(resposta);
+                });
             }
-        }).catch(function (resposta) {
-            console.error(resposta);
-        });
-    }
-</script>
+        </script>

@@ -38,4 +38,4 @@ select * from Post;
 
 update post set descricao = 'oioi', titulo = 'aiai' WHERE idPost = 2504;
 
-SELECT nome as 'Nome do Usuário', COUNT(idPost) as 'Número de postagens' from Post join Usuario where fkUsuario = idUsuario group by fkUsuario;
+SELECT nome as 'Nome do Usuário', COUNT(idPost) as  'qtdePosts' from Post join Usuario on fkUsuario = idUsuario group by fkUsuario;

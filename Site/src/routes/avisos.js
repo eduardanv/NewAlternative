@@ -15,7 +15,7 @@ router.get("/listar/:idUsuario", function (req, res) {
     avisoController.listarPorUsuario(req, res);
 });
 
-router.get("/listarUsuarios/:idUsuario", function (req, res) {
+router.get("/listarUsuarios", function (req, res) {
     avisoController.listarUsuarios(req, res);
 })
 
