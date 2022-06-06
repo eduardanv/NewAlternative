@@ -71,22 +71,23 @@
 </html>
 <script>
 
+    //CRIAÇÃO DE VETORES PARA RECEBER OS VALORES DAS INPUTS.
     var roupaSuperior = [];
     var roupaInferior = [];
 
 
-    if(validarSessao() == true){
-        ulLogin.style.display = 'none';
-        ulExit.style.display = 'block';
-        ulCad.style.display = 'none';
-    }
+    // if(validarSessao() == true){
+    //     ulLogin.style.display = 'none';
+    //     ulExit.style.display = 'block';
+    //     ulCad.style.display = 'none';
+    // }
 
     function cadastrar1() {
-
+        //SE CAMPO 1 ESTIVER VAZIO
         if (iptSuperior.value == '') {
             alert('Ei.. O campo de roupa superior não pode esta vazio!');
         }
-
+        //SE NAO
         else {
             roupaSuperior.push(iptSuperior.value);
             iptSuperior.value = '';
@@ -94,11 +95,11 @@
     }
 
     function cadastrar2() {
-
+        //SE CAMPO 2 ESTIVER VAZIO
         if (iptInferior.value == '') {
             alert('Ei.. O campo de roupa inferior não pode esta vazio!');
         }
-
+        //SE NAO
         else {
             roupaInferior.push(iptInferior.value);
             iptInferior.value = '';
@@ -113,6 +114,7 @@
         if (roupaSuperior.length > 0 && roupaInferior.length > 0) {
             msg.innerHTML = `As combinações possíveis são: ${roupaInferior.length * roupaSuperior.length}<br>`;
 
+            //LOOPING PARA MOSTRAR TODAS AS COMBINAÇÕES POSSÍVEIS
             if (roupaSuperior.length >= roupaInferior.length) {
                 for (let i = 0; i < roupaSuperior.length; i++) {
                     msg.innerHTML += `<br>${roupaSuperior[i]} combina com: <br>`;
@@ -123,6 +125,8 @@
 
                 }
             }
+            //SE QUANTIDADE DE ROUPAS INFERIORES FOREM MAIORES QUE A SUPERIOR, ESTE LOOPING ASSUME
+            //E AS COMBINAÇÕES SÃO FEITAS A PARTIR DESTE.
             else{
                 for (let i = 0; i < roupaInferior.length; i++) {
                     msg.innerHTML += `<br>${roupaInferior[i]} combina com: <br>`;
@@ -134,7 +138,7 @@
                 }
             }
         }
-
+        //SE OS CAMPOS ESTIVEREM VAZIOS.
         else {
             alert('Os campos não podem estar vazios!');
         }

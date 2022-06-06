@@ -102,9 +102,9 @@
     }
 
     function cadastrar() {
-        // aguardar();
+    
 
-        //Recupere o valor da nova input pelo nome do id
+        //RECUPERANDO 0 VALOR DA NOVA INPUT PELO NOME DO ID
         // Agora vá para o método fetch logo abaixo
         var nomeVar = iptNome.value;
         var emailVar = iptEmail.value;
@@ -113,30 +113,32 @@
         var dataNascVar = iptNasc.value;
         var telVar = iptTel.value;
 
+        //SE TODOS OS CAMPOS ESTIVEREM VAZIOS
         if (nomeVar == "" || emailVar == "" || senhaVar == "" || confirmacaoSenhaVar == "" || dataNascVar == "" || telVar == "") {
             alert('Ops... Há campos vazios! :(');
 
-            // finalizarAguardar();
             return false;
         }
-
+        //SE SENHA E CONFIRMAÇÃO DE SENHA FOREM DIFERENTES
         else if (senhaVar != confirmacaoSenhaVar) {
 
             alert('As senhas não coincidem!');
             return false;
         }
 
+        //SE E-MAIL NÃO POSSUIR '@' OU '.' 
         else if (emailVar.indexOf("@") == -1 || emailVar.indexOf(".") == -1) {
             alert('Insira um e-mail válido.');
             return false;
         }
 
+        //SE O DOMÍNIO DO E-MAIL NÃO FOR VÁLIDO
         else if (emailVar.indexOf('gmail.com') == -1 || emailVar.indexOf('hotmail.com') == -1 || emailVar.indexOf('outlook.com') == -1 || emailVar.indexOf('icloud.com') == -1) {
 
             alert('Insira um e-mail válido.')
         }
         else {
-            // Enviando o valor da nova input
+            // ENVIANDO O VALOR DA NOVA INPUT ATRAVÉS DAS ROTAS
             fetch("/usuarios/cadastrar", {
                 method: "POST",
                 headers: {
@@ -164,13 +166,11 @@
                     }, "1000")
 
                     limparFormulario();
-                    // finalizarAguardar();
                 } else {
                     throw ("Houve um erro ao tentar realizar o cadastro!");
                 }
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                // finalizarAguardar();
             });
 
             return false;

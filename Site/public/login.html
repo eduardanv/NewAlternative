@@ -80,10 +80,6 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                         </div>
 
                     </div>
-
-                    <div id="div_erros_login">
-
-                    </div>
                 </div>
             </div>
             <br>
@@ -105,22 +101,15 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
 
 <script>
 
-function key(){
-        if(event.key === 'Enter'){
-        return entrar()
 
-        }else{}
-    }
-
+    //FUNÇÃO DE LOGIN
     function entrar() {
 
         var emailVar = iptEmail.value;
         var senhaVar = iptSenha.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
             alert('Ops...Há campos vazios :(');
-            // finalizarAguardar();
             return false;
         }
 
@@ -137,7 +126,7 @@ function key(){
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
-
+        //MÉTODO PARA AUTENTICAÇÃO POR ROTAS
         fetch("/usuarios/autenticar", {
             method: "POST",
             headers: {
@@ -156,7 +145,7 @@ function key(){
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-
+                    //SALVAR EMAIL, NOME E EMAIL USUARIO EM ARQUIVOS DE TEXTO JASON
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.idUsuario;
@@ -173,7 +162,6 @@ function key(){
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    // finalizarAguardar(texto);
                 });
             }
 

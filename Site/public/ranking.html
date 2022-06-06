@@ -43,9 +43,9 @@
             <div id="rank_container" class="rank_container">
             </div>
         </div>
-            <br>
-            <br>
-            <br>
+        <br>
+        <br>
+        <br>
     </div>
     </div>
     <br><br><br><br><br><br>
@@ -53,52 +53,66 @@
         <div class="container">
             Feito com amor por Maria Eduarda ♥ 1CCO
         </div>
-        <script>
-            function listarUsuarios() {
+    </div>
 
-                fetch(`avisos/listarUsuarios`).then(function (resposta) {
-                    if (resposta.ok) {
-                        if (resposta.status == 204) {
-                            var feed = document.getElementById("feed_container");
-                            var mensagem = document.createElement("span");
-                            mensagem.className = "msgPublicacao";
-                            mensagem.innerHTML = "Tudo vazio por aqui."
-                            feed.appendChild(mensagem);
-                            throw "Nenhum resultado encontrado!!";
-                        }
+</html>
 
+<script>
 
-                        resposta.json().then(function (resposta) {
-                            console.log("Dados recebidos: ", JSON.stringify(resposta));
+    //FUNÇÃO PARA RETORNAR E LISTAR TODOS OS USUÁRIOS CADASTRADOS NO BANCO DE DADOS
+    //QUE JÁ TENHAM POSTADO ALGO
+    function listarUsuarios() {
+        //MÉTODO PARA ROTA DE LISTAR OS USUÁRIOS, CASO NÃO EXISTAM USUARIOS COM POSTS REALIZADOS
+        //RETORNAR A MENSAGEM 'Nenhum resultado encontrado!'
+        fetch(`avisos/listarUsuarios`).then(function (resposta) {
+            if (resposta.ok) {
+                if (resposta.status == 204) {
+                    //
+                    var feed = document.getElementById("rank_container");
+                    var mensagem = document.createElement("span");
+                    mensagem.className = "msgPublicacao";
+                    mensagem.innerHTML = "Tudo vazio por aqui."
+                    feed.appendChild(mensagem);
+                    throw "Nenhum resultado encontrado!!";
+                }
 
-                            var rank = document.getElementById("rank_container");
-                            rank.innerHTML = "";
-                            for (let i = 0; i < resposta.length; i++) {
-                                var publicacao = resposta[i];
+                //CASO EXISTA POSTAGEM, IRÁ LISTÁ-LOS POR ORDEM DECRESCENTE
+                resposta.json().then(function (resposta) {
+                    console.log("Dados recebidos: ", JSON.stringify(resposta));
 
-                                var nomeUsuario = document.createElement("span");
-                                // var divVazia = document.createElement("div");
-                                var numeroPostagem = document.createElement("span");
+                    var rank = document.getElementById("rank_container");
+                    rank.innerHTML = "";
+                    //LOOPING PARA CRIAR AS SPANS COM OS NOMES E QUANTIDADE DE POSTAGENS DOS USUÁRIOS
+                    for (let i = 0; i < resposta.length; i++) {
+                        var publicacao = resposta[i];
 
-                                nomeUsuario.innerHTML = publicacao.nome;
-                                numeroPostagem.innerHTML = publicacao.qtdePosts + '<br>';
-                                // divVazia.className = "divVazia";
-                                numeroPostagem.className = "spnNumero";
-                                nomeUsuario.className = "spnNome";
-                                rank_container.appendChild(nomeUsuario);
-                                // rank_container.appendChild(divVazia);
-                                rank_container.appendChild(numeroPostagem);
+                        var nomeUsuario = document.createElement("span");
+                        // var divVazia = document.createElement("div");
+                        var numeroPostagem = document.createElement("span");
 
-                            }
+                        //PEGANDO AS COLUNAS DO BANCO DE DADOS E MANIPULANDO PARA SEREM MOSTRADAS 
+                        //ATRAVÉS DOS ELEMENTOS HTML
+                        nomeUsuario.innerHTML = publicacao.nome;
+                        numeroPostagem.innerHTML = publicacao.qtdePosts + '<br>';
+                        // divVazia.className = "divVazia";
+                        numeroPostagem.className = "spnNumero";
+                        nomeUsuario.className = "spnNome";
 
-                        });
+                        //MOSTRANDO OS ELEMENTOS HTML DENTRO DA DIV 'RANK_CONTAINER'
+                        rank_container.appendChild(nomeUsuario);
+                        // rank_container.appendChild(divVazia);
+                        rank_container.appendChild(numeroPostagem);
 
                     }
-                    else {
-                        throw ('Houve um erro na API!');
-                    }
-                }).catch(function (resposta) {
-                    console.error(resposta);
+
                 });
+
             }
-        </script>
+            else {
+                throw ('Houve um erro na API!');
+            }
+        }).catch(function (resposta) {
+            console.error(resposta);
+        });
+    }
+</script>

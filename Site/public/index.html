@@ -157,9 +157,8 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
 
 <script>
 
-
+    // Função de atualizar os posts cada vez que a página é recarregada/algo é postado
     function atualizarFeed() {
-        //aguardar();
         fetch("/avisos/listar").then(function (resposta) {
             if (resposta.ok) {
                 if (resposta.status == 204) {
@@ -173,19 +172,20 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
 
                 resposta.json().then(function (resposta) {
                     console.log("Dados recebidos: ", JSON.stringify(resposta));
-
                     var feed = document.getElementById("feed_container");
                     feed.innerHTML = "";
                     for (let i = 0; i < resposta.length; i++) {
                         var publicacao = resposta[i];
 
-                        // criando e manipulando elementos do HTML via JavaScript
+                        // criando e manipulando elementos do HTML pelo JavaScript
                         var divPublicacao = document.createElement("div");
                         var spanID = document.createElement("span");
                         var spanTitulo = document.createElement("span");
                         var spanNome = document.createElement("span");
                         var divDescricao = document.createElement("div");
 
+                        //DANDO VISÃO DE 'ADMINISTRADOR PARA O USUÁRIO 1 - EDUARDA
+                        //POSSIBILIDADE DE EXCLUIR E EDITAR PUBLICAÇÕES
                         if (sessionStorage.ID_USUARIO == 1) {
                             var divButtons = document.createElement("div");
                             var btnEditar = document.createElement("button");
@@ -230,18 +230,21 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                         feed.appendChild(divPublicacao);
                     }
 
-                    // finalizarAguardar();
+               
                 });
             } else {
                 throw ('Houve um erro na API!');
             }
         }).catch(function (resposta) {
             console.error(resposta);
-            // finalizarAguardar();
+       
         });
     }
 
     if (validarSessao() == true) {
+        //SE VALIDAÇÃO FOR VERDADEIRA, OS BOTÕES DE LOGIN, CADASTRO, E O TEXTO DE CADASTRE-SE FICA
+        //ESCONDIDO
+        //BOTÃO 'LOGOUT' E O FORMULÁRIO DE POSTAGEM É MOSTRADO.
         ulLogin.style.display = 'none';
         b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
         ulExit.style.display = 'block';
@@ -249,12 +252,14 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
         post.style.display = 'block';
         textoPassa.style.display = 'none';
         
+        //LIMPAR O FORMULÁRIO
         function limparFormulario() {
             document.getElementById("formPost").reset();
         }
 
         console.log("Antes de publicar");
 
+        //FUNÇÃO PARA CRIAR OS POSTS
         function publicar() {
             console.log("Dentro do publicar");
 
@@ -280,7 +285,7 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                     alert('Post realizado com sucesso!');
                     location.reload();
                     limparFormulario();
-                    // finalizarAguardar();
+               
                 } else if (resposta.status == 404) {
                     window.alert("Iiih! Deu ruim");
                 } else {
@@ -288,7 +293,6 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                 }
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
-                // finalizarAguardar();
             });
 
             return false;
@@ -296,7 +300,8 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
         }
         console.log("Depois de publicar");
 
-
+        // SE ID USUARIO = 1 ESSAS FUNÇÕES SERÃO LIBERADAS
+        // REDIRECIONAR PARA TELA DE EDIÇÃO DE POST
         function editar(idPost) {
             sessionStorage.ID_POSTAGEM_EDITANDO = idPost;
             console.log("cliquei em editar - " + idPost);
@@ -304,7 +309,7 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
             window.location = "/dashboard/edicao-aviso.html"
 
         }
-
+        //EXCLUIR POSTS
         function deletar(idPost) {
             console.log("Criar função de apagar post escolhido - ID" + idPost);
             fetch(`/avisos/deletar/${idPost}`, {
