@@ -59,8 +59,8 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
                 </div>
             </div>
         </div>
-        <div class="txtHead">
-            <marquee class="textoPassa">CONTRIBUA COM O NOSSO FÓRUM! CADASTRE-SE ♥ | DÚVIDAS? CLIQUE NA ABA "FAQ" ♥ | O
+        <div class="txtHead" id="txtHead">
+            <marquee class="textoPassa" id="textoPassa">CONTRIBUA COM O NOSSO FÓRUM! CADASTRE-SE ♥ | DÚVIDAS? CLIQUE NA ABA "FAQ" ♥ | O
                 MUNDO
                 É DOS ESQUISITÕES ♥ | CONTRIBUA COM O NOSSO FÓRUM! CADASTRE-SE ♥ | DÚVIDAS? CLIQUE NA ABA <href></href>
                 "FAQ"
@@ -247,6 +247,7 @@ data-config="{'skin':'skins/black/skin.css','volume':50,'autoplay':true,'shuffle
         ulExit.style.display = 'block';
         ulCad.style.display = 'none';
         post.style.display = 'block';
+        textoPassa.style.display = 'none';
         
         function limparFormulario() {
             document.getElementById("formPost").reset();

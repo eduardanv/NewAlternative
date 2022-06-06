@@ -19,8 +19,6 @@ fkUsuario int,
 foreign key (fkUsuario) references Usuario(idUsuario)
 )auto_increment=2500;
 
-select * from Usuario;
-
 insert into Usuario values (null,'Eduarda','eduarda@gmail.com', '1234', '2002-03-17', '(+55) 11 97472-1438'),
 							(null,'Julia','julia@gmail.com', '1234', '2003-03-15', '(+55) 11 94002-8922'),
                             (null,'Mayara','mayara@gmail.com', '1234', '1990-02-10', '(+55) 11 98922-3206'),
@@ -38,3 +36,4 @@ insert into Post values (null, 'Malfeitona', 'A tatuadora brasileira que se orgu
                             atende e também ministra cursos para aquele(a) que pretende seguir por este ramo também. Para ver fotos dos trabalhos dela, siga: @saty_servasat',1);
                                 
 select * from Post;
+select * from Usuario;
