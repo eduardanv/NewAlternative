@@ -450,6 +450,15 @@ a {
    width: 176px;
 }
 
+.iptConteudoEdit{
+   width: 20vw;
+   height: 20vh;
+   word-wrap: break-word;
+   font-size: 15px;
+   padding-left: 0%;
+   margin-right: 50%;
+}
+
 .btnEditar {
    border: #000000 solid 3px;
    border-radius: 2%;

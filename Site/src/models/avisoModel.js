@@ -1,3 +1,5 @@
+//AQUI É ONDE FAZEMOS AS INSTRUÇÕES PARA O BANCO DE DADOS EXECUTAR.
+
 var database = require("../database/config");
 
 function listar() {
